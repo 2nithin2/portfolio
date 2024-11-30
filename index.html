@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e0e5ec">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/loader.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- loader Section -->
+    <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    <!-- Header Section -->
+    <header class="neu-header">
+        <nav>
+            <div class="logo">Nithin</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="zoom-in">
+            <div class="hero-text">
+                <h1>Nithin Raj K</h1>
+                <p>Python Developer & web developer</p>
+                <a href="#contact" class="neu-button">Get In Touch <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="public/assets/images/profile.jpg" alt="Nithin" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-content" data-aos="fade-right">
+                    <p>I am a passionate Full Stack Developer with expertise in Python and web technologies. I love creating efficient, scalable solutions and have a keen interest in modern web development practices.</p>
+                    <p>My journey in software development has equipped me with strong problem-solving skills and the ability to adapt to new technologies quickly. I believe in writing clean, maintainable code and creating user-friendly applications.</p>
+                </div>
+                <div class="skills-content" data-aos="fade-left">
+                    <h3>Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 10px;">
+
+            <div class="skills-content" data-aos="fade-left">
+                <h3>Worked on </h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-node"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="about-container">
+                    <div class="about-content" data-aos="fade-right">
+                        <p>I am a passionate Full Stack Developer with expertise in Python and web technologies. I love creating efficient, scalable solutions and have a keen interest in modern web development practices.</p>
+                        <p>My journey in software development has equipped me with strong problem-solving skills and the ability to adapt to new technologies quickly. I believe in writing clean, maintainable code and creating user-friendly applications.</p>
+                    </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="resume-content" data-aos="fade-up">
+            <h2>My Resume</h2>
+            <p>Download my resume to learn more about my experience and skills.</p>
+            <div class="resume-actions">
+                <a href="assets/resume.pdf" download class="neu-button resume-download" data-tooltip="Download my detailed CV">
+                    <i class="fas fa-file-download"></i>
+                    Download Resume
+                </a>
+            </div>
+            <div class="resume-preview">
+                <div class="flip-cards-container">
+                    <!-- Education Card -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="preview-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Education</h3>
+                                <p>Click to view details</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="section-header">Academic Background</div>
+                                <div class="education-details">
+                                    <div class="edu-item">
+                                        <h4>B.Tech in Computer Science</h4>
+                                        <p>APJ Abdul Kalam Technological University</p>
+                                        <p>2019 - 2023</p>
+                                        <p>CGPA: 7.5</p>
+                                    </div>
+                                    <div class="edu-item">
+                                        <h4>Higher Secondary</h4>
+                                        <p>GHSS Kadakkal</p>
+                                        <p>2017 - 2019</p>
+                                        <p>Percentage: 85%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Card -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="preview-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h3>Experience</h3>
+                                <p>Click to view details</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="section-header">Work Experience</div>
+                                <div class="experience-details">
+                                    <div class="exp-item">
+                                        <h4>Python Developer</h4>
+                                        <p class="company">Company Name</p>
+                                        <p class="duration">2023 - Present</p>
+                                        <ul>
+                                            <li>Developed and maintained web applications</li>
+                                            <li>Worked with Python, Django, and React</li>
+                                            <li>Implemented database solutions</li>
+                                        </ul>
+                                    </div>
+                                    <div class="exp-item">
+                                        <h4>Web Developer Intern</h4>
+                                        <p class="company">Company Name</p>
+                                        <p class="duration">2022 - 2023</p>
+                                        <ul>
+                                            <li>Built responsive web interfaces</li>
+                                            <li>Collaborated with senior developers</li>
+                                            <li>Learned modern web technologies</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Card -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <div class="preview-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Certifications</h3>
+                                <p>Click to view details</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="section-header">Professional Certifications</div>
+                                <div class="cert-details">
+                                    <div class="cert-item">
+                                        <h4>Web Development</h4>
+                                        <p class="issuer">Platform Name</p>
+                                        <p class="date">2023</p>
+                                        <p class="description">Comprehensive course covering modern web development technologies and best practices.</p>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h4>Python Programming</h4>
+                                        <p class="issuer">Platform Name</p>
+                                        <p class="date">2022</p>
+                                        <p class="description">Advanced Python programming concepts and application development.</p>
+                                    </div>
+                                    <div class="cert-item">
+                                        <h4>UI/UX Design</h4>
+                                        <p class="issuer">Platform Name</p>
+                                        <p class="date">2022</p>
+                                        <p class="description">User interface design principles and user experience best practices.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 data-aos="fade-up">My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card" data-aos="flip-left">
+                <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                <h3>Project One</h3>
+                <p>A beautiful web application built with modern technologies.</p>
+                <div class="project-links">
+                    <a href="#" class="project-btn btn-live-demo">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>Live Demo</span>
+                    </a>
+                    <a href="#" class="project-btn btn-github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+                <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>An innovative solution for modern problems.</p>
+                <div class="project-links">
+                    <a href="#" class="project-btn btn-live-demo">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>Live Demo</span>
+                    </a>
+                    <a href="#" class="project-btn btn-github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="flip-left" data-aos-delay="400">
+                <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                <h3>Project Three</h3>
+                <p>Creative design meets functionality.</p>
+                <div class="project-links">
+                    <a href="#" class="project-btn btn-live-demo">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>Live Demo</span>
+                    </a>
+                    <a href="#" class="project-btn btn-github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 data-aos="fade-up">Get In Touch</h2>
+        <div class="contact-content">
+            <form id="contactForm" class="contact-form" data-aos="fade-right" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="5cafe855-121e-42dc-ac46-46201aaa03aa">
+                <input type="text" name="name" placeholder="Your Name" class="neu-input" required>
+                <input type="email" name="email" placeholder="Your Email" class="neu-input" required>
+                <textarea name="message" placeholder="Your Message" class="neu-input" required></textarea>
+                <button type="submit" class="neu-button">
+                    <span class="button-text">Send Message</span>
+                    <span class="button-loader hidden"></span>
+                </button>
+            </form>
+            <div class="contact-info" data-aos="fade-left">
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out to me through any of these channels:</p>
+                <div class="contact-details">
+                    <p data-tooltip="Send me an email">
+                        <i class="fas fa-envelope"></i> nithinraj22@outlook.com
+                    </p>
+                    <p data-tooltip="Check out my projects">
+                        <i class="fab fa-github"></i> github.com/username
+                    </p>
+                    <p data-tooltip="Connect with me">
+                        <i class="fab fa-linkedin"></i> linkedin.com/in/username
+                    </p>
+                    <p data-tooltip="Follow me">
+                        <i class="fab fa-twitter"></i> @username
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="visitor-counter">
+            <i class="fas fa-eye"></i>
+            <span id="visitor-count">0</span> visitors
+        </div>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("zwUYib7NBA0mc965I");
+        })();
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+/* 
+ * components.css
+ * Contains styles for reusable components
+ */
+
+/* Buttons */
+.neu-button {
+    background: linear-gradient(145deg, #e3405f, #f86a6a);
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: var(--depth-shadow-small);
+}
+
+.neu-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--depth-shadow);
+}
+
+/* Cards */
+.neu-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: var(--depth-shadow-small);
+    transition: var(--theme-transition);
+}
+
+.neu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--depth-shadow);
+}
+
+/* Inputs */
+.neu-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: var(--depth-shadow-inset);
+    transition: var(--theme-transition);
+}
+
+.neu-input:focus {
+    outline: none;
+    box-shadow: var(--depth-shadow-small);
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+[data-tooltip]:before {
+    content: "";
+    border: 5px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 101;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+}
+
+[data-tooltip]:after {
+    content: attr(data-tooltip);
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-radius: 6px;
+    z-index: 100;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    box-shadow: var(--depth-shadow-small);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 0.8rem;
+    border-radius: 50%;
+    background: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    box-shadow: var(--depth-shadow-small);
+    transition: var(--theme-transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+    box-shadow: var(--depth-shadow);
+}
