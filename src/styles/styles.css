@@ -78,6 +78,17 @@
     animation: slideIn 0.8s ease-out;
 }
 
+.hero-text p {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+    color: var(--text-color);
+}
+
+.typed {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
