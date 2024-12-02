@@ -27,17 +27,35 @@
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-sun"></i>
-            </button>
+            <div class="header-controls">
+                <button id="autoscroll-toggle" class="autoscroll-toggle" aria-label="Toggle auto-scroll">
+                    <i class="fas fa-angle-double-down"></i>
+                </button>
+                <button id="music-toggle" class="music-toggle" aria-label="Toggle music">
+                    <i class="fas fa-music"></i>
+                </button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
         </nav>
+        <audio id="background-music" loop>
+            <source src="public/assets/audio/background-music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="myVideo">
+                <source src="public/assets/videos/video_animated3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="hero-content" data-aos="zoom-in">
             <div class="hero-text">
-                <h1>Nithin Raj K</h1>
+                <h1>Nithin Raj </h1>
                 <p>I'm a <span class="typed"></span></p>
                 <a href="#contact" class="neu-button">Get In Touch <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -439,6 +457,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="src/js/script.js"></script>
+    <script src="src/js/music-control.js"></script>
+    <script src="src/js/auto-scroll.js"></script>
     <script>
         var typed = new Typed('.typed', {
             strings: ['Python Developer', 'Web Developer', 'Full Stack Developer'],
