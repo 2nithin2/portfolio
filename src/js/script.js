@@ -1,47 +1,58 @@
-// Add this at the beginning of your script.js
+/**
+ * Main JavaScript file for portfolio website
+ * Handles core functionality including theme switching, animations,
+ * navigation, and interactive features
+ */
+
+// Initialize page loader
 document.addEventListener('DOMContentLoaded', () => {
-    // Add loading class to body
+    // Add loading class to body for initial animation
     document.body.classList.add('loading');
 });
 
-// Loader handling
+// Handle page load completion
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
     document.body.classList.remove('loading');
     
+    // Fade out loader
     setTimeout(() => {
         loader.classList.add('hidden');
     }, 500);
     
+    // Remove loader from DOM
     setTimeout(() => {
         loader.style.display = 'none';
     }, 1000);
 });
 
-// Theme Toggle Functionality
+/**
+ * Theme Toggle Functionality
+ * Handles switching between light and dark themes
+ * Persists theme preference in localStorage
+ */
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = themeToggle.querySelector('i');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Function to set theme
+/**
+ * Sets the theme and updates the toggle icon
+ * @param {string} theme - 'dark' or 'light'
+ */
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     
-    // Update icon with animation
+    // Animate icon change
     themeIcon.style.transform = 'scale(0)';
     
     setTimeout(() => {
-        if (theme === 'dark') {
-            themeIcon.className = 'fas fa-moon'; // Moon for dark mode
-        } else {
-            themeIcon.className = 'fas fa-sun'; // Sun for light mode
-        }
+        themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         themeIcon.style.transform = 'scale(1) rotate(360deg)';
     }, 150);
 }
 
-// Check for saved theme preference or use system preference
+// Initialize theme from localStorage or system preference
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     setTheme(savedTheme);
@@ -62,20 +73,14 @@ prefersDarkScheme.addEventListener('change', (e) => {
     }
 });
 
-// Initialize AOS with enhanced settings
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-    easing: 'ease-out',
-    disable: 'mobile'
-});
-
-// Navigation active state and smooth scroll
+/**
+ * Navigation and Scroll Functionality
+ * Handles smooth scrolling and active section highlighting
+ */
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('section');
 
-// Smooth scroll with offset
+// Add smooth scroll behavior to navigation links
 navLinks.forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -90,39 +95,55 @@ navLinks.forEach(link => {
             behavior: 'smooth'
         });
 
-        // Update active class
+        // Update active navigation link
         navLinks.forEach(navLink => navLink.classList.remove('active'));
         link.classList.add('active');
     });
 });
 
-// Update active state on scroll
+/**
+ * Updates active navigation link based on scroll position
+ */
 function updateActiveLink() {
-    const fromTop = window.scrollY + 100; // Offset for better activation point
+    const fromTop = window.scrollY + 100;
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const correspondingLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+        const link = document.querySelector(`a[href="#${section.id}"]`);
+        
+        if (!link) return;
+
+        const { top, bottom } = section.getBoundingClientRect();
+        const sectionTop = top + window.pageYOffset;
+        const sectionBottom = bottom + window.pageYOffset;
 
         if (fromTop >= sectionTop && fromTop <= sectionBottom) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (correspondingLink) {
-                correspondingLink.classList.add('active');
-            }
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
 
-// Add scroll event listener
+// Add scroll event listeners
 window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
 
-// Initialize EmailJS
-emailjs.init("zwUYib7NBA0mc965I"); // Your EmailJS public key
+/**
+ * Initialize AOS with enhanced settings
+ * Handles animations for sections and elements
+ */
+AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+    easing: 'ease-out',
+    disable: 'mobile'
+});
 
-// Contact Form Handling
+/**
+ * Contact Form Handling
+ * Handles form submission and validation
+ */
 const contactForm = document.getElementById('contactForm');
 const submitButton = contactForm.querySelector('button[type="submit"]');
 const buttonText = submitButton.querySelector('.button-text');
@@ -161,7 +182,10 @@ contactForm.addEventListener('submit', async function(e) {
     }
 });
 
-// Enhanced form submission handler with validation
+/**
+ * Enhanced form submission handler with validation
+ * Handles form validation and submission
+ */
 const contactFormValidation = document.querySelector('.contact-form');
 if (contactFormValidation) {
     contactFormValidation.addEventListener('submit', function(e) {
@@ -192,13 +216,23 @@ if (contactFormValidation) {
     });
 }
 
-// Email validation helper
+/**
+ * Email validation helper
+ * Checks if an email address is valid
+ * @param {string} email - Email address to validate
+ * @returns {boolean} - Whether the email address is valid
+ */
 function isValidEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
-// Notification system
+/**
+ * Notification system
+ * Displays notifications to the user
+ * @param {string} message - Notification message
+ * @param {string} type - Notification type (success or error)
+ */
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -216,7 +250,75 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Enhanced scroll-based effects
+/**
+ * Visitor Counter Functionality
+ * Maintains and displays visitor count starting from 22
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const visitorCountElement = document.getElementById('visitor-count');
+    if (visitorCountElement) {
+        // Get stored count or start from 22
+        let count = localStorage.getItem('visitorCount');
+        if (!count) {
+            count = '22';
+            localStorage.setItem('visitorCount', count);
+        }
+        // Display the count
+        visitorCountElement.textContent = count;
+        
+        // Increment count after a short delay
+        setTimeout(() => {
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitorCount', count.toString());
+            visitorCountElement.textContent = count;
+        }, 1000);
+    }
+});
+
+/**
+ * Handle flip card back scroll
+ * Prevents scroll issues within flip cards
+ */
+document.querySelectorAll('.flip-card-back').forEach(card => {
+    card.addEventListener('wheel', (e) => {
+        const { scrollTop, scrollHeight, clientHeight } = card;
+        const isScrollingUp = e.deltaY < 0;
+        const isScrollingDown = e.deltaY > 0;
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = scrollTop + clientHeight === scrollHeight;
+
+        if ((isAtTop && isScrollingUp) || (isAtBottom && isScrollingDown)) {
+            e.preventDefault();
+        }
+    });
+});
+
+/**
+ * Mobile Menu Toggle
+ * Handles mobile menu toggle functionality
+ */
+const mobileMenuButton = document.createElement('button');
+mobileMenuButton.className = 'mobile-menu-btn neu-button';
+mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
+document.querySelector('.nav-controls').prepend(mobileMenuButton);
+
+mobileMenuButton.addEventListener('click', () => {
+    document.querySelector('.nav-controls').classList.toggle('active');
+    mobileMenuButton.innerHTML = document.querySelector('.nav-controls').classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+});
+
+/**
+ * Initialize EmailJS
+ * Handles EmailJS initialization
+ */
+emailjs.init("zwUYib7NBA0mc965I"); // Your EmailJS public key
+
+/**
+ * Enhanced scroll-based effects
+ * Handles scroll-based effects for the header
+ */
 const header = document.querySelector('.neu-header');
 let lastScroll = 0;
 
@@ -233,7 +335,10 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for smooth section reveals
+/**
+ * Intersection Observer for smooth section reveals
+ * Handles smooth section reveals using IntersectionObserver
+ */
 const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -251,55 +356,4 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all sections
 document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
-});
-
-// Mobile Menu Toggle
-const mobileMenuButton = document.createElement('button');
-mobileMenuButton.className = 'mobile-menu-btn neu-button';
-mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
-document.querySelector('.nav-controls').prepend(mobileMenuButton);
-
-mobileMenuButton.addEventListener('click', () => {
-    document.querySelector('.nav-controls').classList.toggle('active');
-    mobileMenuButton.innerHTML = document.querySelector('.nav-controls').classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-});
-
-// Visitor Counter
-async function updateVisitorCount() {
-    try {
-        const response = await fetch('https://api.countapi.xyz/hit/nithinportfolio/visits');
-        const data = await response.json();
-        document.getElementById('visitor-count').textContent = data.value.toLocaleString();
-    } catch (error) {
-        console.error('Error updating visitor count:', error);
-    }
-}
-
-// Update visitor count when page loads
-document.addEventListener('DOMContentLoaded', updateVisitorCount);
-
-// Handle flip card back scroll
-document.querySelectorAll('.flip-card-back').forEach(card => {
-    let isScrolling;
-    
-    card.addEventListener('scroll', () => {
-        // Add scrolled class immediately when scrolling starts
-        if (card.scrollTop > 10) {
-            card.classList.add('scrolled');
-        } else {
-            card.classList.remove('scrolled');
-        }
-        
-        // Clear the existing timeout
-        window.clearTimeout(isScrolling);
-        
-        // Set a timeout to remove the class when scrolling stops
-        isScrolling = setTimeout(() => {
-            if (card.scrollTop <= 10) {
-                card.classList.remove('scrolled');
-            }
-        }, 100);
-    });
 });

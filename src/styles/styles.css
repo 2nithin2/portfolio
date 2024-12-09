@@ -382,32 +382,65 @@ nav {
 
 .skill-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem;
-    background: var(--background);
-    border-radius: 10px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: var(--card-bg);
     box-shadow: var(--depth-shadow-small);
-    transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
+    transition: var(--transition);
 }
 
 .skill-item i {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: var(--accent-color);
 }
 
 .skill-item span {
-    margin-top: 0.5rem;
-    text-align: center;
     font-size: 0.9rem;
     color: var(--text-color);
-    max-width: 200px;
-    line-height: 1.4;
+}
+
+.skill-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--depth-shadow);
+}
+
+.worked_on .skill-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.4rem;
+    border-radius: 6px;
+    background: #1a1b1e;
+    border: 1px solid #30363d;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.worked_on .skill-item span {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.worked_on .skill-item:hover {
+    transform: translateY(-2px);
+    border-color: #58a6ff;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+}
+
+.worked_on .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+}
+
+.worked_on .tech-category h4 {
+    color: #8b949e;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -480,10 +513,11 @@ nav {
     line-height: 1.6;
 }
 
-.project-links {
+.project-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .project-btn {
@@ -500,6 +534,33 @@ nav {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    margin-right: 15px;
+    color: var(--bg-color);
+}
+
+.project-btn:last-child {
+    margin-right: 0;
+}
+
+.project-btn i {
+    font-size: 1.1rem;
+}
+
+.project-btn span {
+    margin-left: 8px;
+}
+
+.btn-live-demo {
+    background: var(--primary-color);
+}
+
+.btn-github {
+    background: var(--secondary-color);
+}
+
+.project-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 .project-btn::before {
@@ -521,41 +582,6 @@ nav {
 
 .project-btn:hover::before {
     left: 100%;
-}
-
-.btn-live-demo {
-    background: #00C853;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.2);
-}
-
-.btn-live-demo:hover {
-    background: #00B848;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.3);
-}
-
-.btn-github {
-    background: #24292E;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.2);
-}
-
-.btn-github:hover {
-    background: #2F363D;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(36, 41, 46, 0.3);
-}
-
-.project-btn i {
-    font-size: 1.1rem;
-    position: relative;
-    z-index: 2;
-}
-
-.project-btn span {
-    position: relative;
-    z-index: 2;
 }
 
 .project-links a {
@@ -689,6 +715,34 @@ nav {
 .contact-details i {
     width: 20px;
     color: var(--accent-color);
+}
+
+/* Contact Links Styling */
+.contact-link {
+    color: inherit; /* Use the parent text color */
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.contact-link:hover {
+    opacity: 0.8;
+}
+
+.contact-link:visited {
+    color: inherit; /* Maintain the same color for visited links */
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.contact-details i {
+    width: 20px;
+    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
@@ -1748,5 +1802,18 @@ input:focus, textarea:focus {
     }
     100% {
         transform: translateY(-2px);
+    }
+}
+@media (max-width: 768px) {
+    [data-aos] {
+        transition-duration: 0.5s !important; /* Faster animations on mobile */
+    }
+    
+    /* Optimize animation performance */
+    * {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
