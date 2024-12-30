@@ -1684,16 +1684,42 @@ input:focus, textarea:focus {
 @media (max-width: 768px) {
     .flip-cards-container {
         grid-template-columns: 1fr;
+        padding: 0 10px;
     }
 
     .flip-card {
         height: 450px;
+        touch-action: pan-y pinch-zoom;
+    }
+
+    .flip-card-back {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
+        height: 100%;
+        padding: 1rem;
+        overscroll-behavior: contain;
+        position: absolute;
+        width: 100%;
+    }
+
+    .flip-card-front, .flip-card-back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 
     .edu-item,
     .exp-item,
     .cert-item {
         padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-header {
+        position: sticky;
+        top: 0;
+        background: var(--secondary-bg);
+        z-index: 2;
+        padding: 1rem 0;
     }
 }
 
